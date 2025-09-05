@@ -235,6 +235,68 @@
         };
 
         // --- Helper Components for Image Generation ---
+ codex/corrigir-botao-de-adicao-de-fotos-1paw0u
+        const PrintableProductCard = ({ product, category }) => (
+            <div
+                className="printable-product"
+                data-product-name={product.name}
+                data-category-name={category}
+                style={{
+                    width: '1080px',
+                    height: '1920px',
+                    padding: '48px',
+                    boxSizing: 'border-box',
+                    backgroundColor: '#f3f4f6',
+                    fontFamily: "'Poppins', sans-serif",
+                    position: 'relative',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}
+            >
+                <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    crossOrigin="anonymous"
+                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                />
+                <div
+                    style={{
+                        position: 'absolute',
+                        top: '48px',
+                        right: '48px',
+                        textAlign: 'right',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'flex-end',
+                        gap: '0.5rem',
+                        backgroundColor: 'rgba(255,255,255,0.9)',
+                        padding: '0.75rem',
+                        borderRadius: '12px'
+                    }}
+                >
+                    <h2 style={{ fontSize: '2.25rem', fontWeight: '700', color: 'var(--brand-green)' }}>{category}</h2>
+                    <h3 style={{ fontWeight: '700', fontSize: '1.5rem', color: 'var(--brand-green)' }}>{product.name}</h3>
+                    {(product.details || []).map((detail, index) => (
+                        <div key={index} style={{ borderLeft: '4px solid #e5e7eb', paddingLeft: '0.75rem' }}>
+                            <div style={{ fontWeight: '600', color: '#4b5563' }}>{detail.flavor}</div>
+                            <div style={{ fontWeight: '700', color: '#1f2937' }}>Cód: {detail.code}</div>
+                        </div>
+                    ))}
+                </div>
+                <div
+                    style={{
+                        position: 'absolute',
+                        bottom: '48px',
+                        left: 0,
+                        right: 0,
+                        textAlign: 'center'
+                    }}
+                >
+                    <span style={{ fontSize: '36px', fontWeight: '700', color: 'var(--brand-green)' }}>Igor</span>
+                    <span style={{ fontSize: '36px', fontWeight: '700', color: 'var(--brand-red)' }}>Valen</span>
+                    <p style={{ fontSize: '24px', color: '#374151' }}>Distribuidora</p>
+
         const PrintableProductCard = ({ product }) => (
             <div style={{
                 backgroundColor: 'white',
@@ -299,12 +361,19 @@
  main
  main
  main
+ main
                 </div>
             </div>
         );
 
         const PrintableCatalog = ({ groupedProducts }) => (
             <div id="printable-catalog" style={{ display: 'none' }}>
+ codex/corrigir-botao-de-adicao-de-fotos-1paw0u
+                {groupedProducts.flatMap(group => (
+                    group.products.map(p => (
+                        <PrintableProductCard key={p.id} product={p} category={group.category} />
+                    ))
+
                 {groupedProducts.map(group => (
                     <div
                         key={group.category}
@@ -347,6 +416,7 @@
                             <p style={{ fontSize: '24px', color: '#374151' }}>Distribuidora</p>
                         </div>
                     </div>
+ main
                 ))}
             </div>
         );
@@ -365,6 +435,13 @@
 
                 printableElement.style.display = 'block';
 
+ codex/corrigir-botao-de-adicao-de-fotos-1paw0u
+                const productSections = Array.from(printableElement.getElementsByClassName('printable-product'));
+
+                try {
+                    for (const section of productSections) {
+                        const productName = section.dataset.productName || 'produto';
+
                 const categorySections = Array.from(printableElement.getElementsByClassName('printable-category-section'));
 
  codex/corrigir-botao-de-adicao-de-fotos-6hmxaz
@@ -373,6 +450,7 @@
  main
                 try {
                     for (const section of categorySections) {
+ main
                         const categoryName = section.dataset.categoryName || 'categoria';
 
                         await new Promise(resolve => setTimeout(resolve, 300));
@@ -385,7 +463,11 @@
 
                         const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png', 1.0));
                         const link = document.createElement('a');
+ codex/corrigir-botao-de-adicao-de-fotos-1paw0u
+                        link.download = `catalogo-${categoryName.replace(/ /g, '_')}-${productName.replace(/ /g, '_')}.png`;
+
                         link.download = `catalogo-${categoryName.replace(/ /g, '_')}.png`;
+ main
                         link.href = URL.createObjectURL(blob);
                         document.body.appendChild(link);
                         link.click();
@@ -398,6 +480,8 @@
                 } finally {
                     printableElement.style.display = 'none';
                     setIsGenerating(false);
+ codex/corrigir-botao-de-adicao-de-fotos-1paw0u
+
  codex/corrigir-botao-de-adicao-de-fotos-6hmxaz
 
 
@@ -420,6 +504,7 @@
                     link.click();
                     document.body.removeChild(link);
                     URL.revokeObjectURL(link.href);
+ main
  main
  main
                 }
@@ -512,6 +597,9 @@
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div className="bg-white p-6 rounded-3xl shadow-lg text-center">
+ codex/corrigir-botao-de-adicao-de-fotos-1paw0u
+                                <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-9001.png" alt="[Imagem do selo ISO 9001]" crossOrigin="anonymous" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
+
  codex/corrigir-botao-de-adicao-de-fotos-6hmxaz
                                 <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-9001.png" alt="[Imagem do selo ISO 9001]" crossOrigin="anonymous" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
 
@@ -525,10 +613,14 @@
  main
  main
  main
+ main
                                 <h3 className="font-bold text-lg text-gray-800">ISO 9001</h3>
                 <p className="text-sm text-gray-600">Norma internacional centrada na gestão da qualidade de um sistema efetivo, e melhoria da qualidade dos produtos e serviços.</p>
                             </div>
                             <div className="bg-white p-6 rounded-3xl shadow-lg text-center">
+ codex/corrigir-botao-de-adicao-de-fotos-1paw0u
+                                <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-14001.png" alt="[Imagem do selo ISO 14001]" crossOrigin="anonymous" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
+
  codex/corrigir-botao-de-adicao-de-fotos-6hmxaz
                                 <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-14001.png" alt="[Imagem do selo ISO 14001]" crossOrigin="anonymous" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
 
@@ -542,10 +634,14 @@
  main
  main
  main
+ main
                                 <h3 className="font-bold text-lg text-gray-800">ISO 14001</h3>
                                 <p className="text-sm text-gray-600">Norma internacional focada no compromisso da organização com a proteção do meio ambiente por meio da gestão dos riscos ambientais.</p>
                             </div>
                             <div className="bg-white p-6 rounded-3xl shadow-lg text-center">
+ codex/corrigir-botao-de-adicao-de-fotos-1paw0u
+                                <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-45001-ES.png" alt="[Imagem do selo ISO 45001]" crossOrigin="anonymous" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
+
  codex/corrigir-botao-de-adicao-de-fotos-6hmxaz
                                 <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-45001-ES.png" alt="[Imagem do selo ISO 45001]" crossOrigin="anonymous" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
 
@@ -556,6 +652,7 @@
                                 <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-45001-ES.png" alt="[Imagem do selo ISO 45001]" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
 
                                 <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-45001-ES.png" alt="[Imagem do selo ISO 45001]" className="h-28 mx-auto mb-4 rounded-full"/>
+ main
  main
  main
  main
