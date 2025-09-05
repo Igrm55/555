@@ -245,8 +245,14 @@
                 color: '#111'
             }}>
                 <div style={{ backgroundColor: '#f9fafb', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+ codex/corrigir-botao-de-adicao-de-fotos-63ejav
                     <img src={product.imageUrl} alt={product.name} crossOrigin="anonymous" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                 </div>
+
+                    <img src={product.imageUrl} alt={product.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                </div>
+ codex/corrigir-botao-de-adicao-de-fotos-gxmmam
+ main
                 <div style={{
                     position: 'absolute',
                     top: '16px',
@@ -268,6 +274,21 @@
                             <div style={{ fontWeight: '700', color: '#1f2937' }}>Cód: {detail.code}</div>
                         </div>
                     ))}
+ codex/corrigir-botao-de-adicao-de-fotos-63ejav
+
+
+                <div style={{ padding: '1rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                    <h3 style={{ fontWeight: '700', fontSize: '1.125rem', marginBottom: '0.75rem', color: 'var(--brand-green)', textAlign: 'right' }}>{product.name}</h3>
+                    <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.875rem', alignItems: 'flex-end', textAlign: 'right' }}>
+                        {(product.details || []).map((detail, index) => (
+                            <div key={index} style={{ borderRight: '4px solid #e5e7eb', paddingRight: '0.75rem' }}>
+                                <div style={{ fontWeight: '600', color: '#4b5563' }}>{detail.flavor}</div>
+                                <div style={{ fontWeight: '700', color: '#1f2937' }}>Cód: {detail.code}</div>
+                            </div>
+                        ))}
+                    </div>
+ main
+ main
                 </div>
             </div>
         );
@@ -288,7 +309,17 @@
                             position: 'relative'
                         }}
                     >
+ codex/corrigir-botao-de-adicao-de-fotos-63ejav
                         <h2 style={{ position: 'absolute', top: '48px', right: '48px', fontSize: '48px', fontWeight: '700', color: 'var(--brand-green)' }}>{group.category}</h2>
+
+ codex/corrigir-botao-de-adicao-de-fotos-gxmmam
+                        <h2 style={{ position: 'absolute', top: '48px', right: '48px', fontSize: '48px', fontWeight: '700', color: 'var(--brand-green)' }}>{group.category}</h2>
+
+                        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '32px' }}>
+                            <h2 style={{ fontSize: '48px', fontWeight: '700', color: 'var(--brand-green)' }}>{group.category}</h2>
+                        </div>
+ main
+ main
                         <div style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -322,6 +353,7 @@
 
                 const categorySections = Array.from(printableElement.getElementsByClassName('printable-category-section'));
 
+ codex/corrigir-botao-de-adicao-de-fotos-63ejav
                 try {
                     for (const section of categorySections) {
                         const categoryName = section.dataset.categoryName || 'categoria';
@@ -349,6 +381,27 @@
                 } finally {
                     printableElement.style.display = 'none';
                     setIsGenerating(false);
+
+                for (const section of categorySections) {
+                    const categoryName = section.dataset.categoryName || 'categoria';
+
+                    await new Promise(resolve => setTimeout(resolve, 100));
+
+                    const canvas = await html2canvas(section, {
+                        scale: 2,
+                        backgroundColor: '#f3f4f6',
+                        useCORS: true
+                    });
+
+                    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png', 1.0));
+                    const link = document.createElement('a');
+                    link.download = `catalogo-${categoryName.replace(/ /g, '_')}.png`;
+                    link.href = URL.createObjectURL(blob);
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(link.href);
+ main
                 }
             };
 
@@ -439,17 +492,41 @@
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div className="bg-white p-6 rounded-3xl shadow-lg text-center">
+ codex/corrigir-botao-de-adicao-de-fotos-63ejav
                                 <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-9001.png" alt="[Imagem do selo ISO 9001]" crossOrigin="anonymous" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
+
+ codex/corrigir-botao-de-adicao-de-fotos-gxmmam
+                                <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-9001.png" alt="[Imagem do selo ISO 9001]" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
+
+                                <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-9001.png" alt="[Imagem do selo ISO 9001]" className="h-28 mx-auto mb-4 rounded-full"/>
+ main
+ main
                                 <h3 className="font-bold text-lg text-gray-800">ISO 9001</h3>
                 <p className="text-sm text-gray-600">Norma internacional centrada na gestão da qualidade de um sistema efetivo, e melhoria da qualidade dos produtos e serviços.</p>
                             </div>
                             <div className="bg-white p-6 rounded-3xl shadow-lg text-center">
+ codex/corrigir-botao-de-adicao-de-fotos-63ejav
                                 <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-14001.png" alt="[Imagem do selo ISO 14001]" crossOrigin="anonymous" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
+
+ codex/corrigir-botao-de-adicao-de-fotos-gxmmam
+                                <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-14001.png" alt="[Imagem do selo ISO 14001]" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
+
+                                <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-14001.png" alt="[Imagem do selo ISO 14001]" className="h-28 mx-auto mb-4 rounded-full"/>
+ main
+ main
                                 <h3 className="font-bold text-lg text-gray-800">ISO 14001</h3>
                                 <p className="text-sm text-gray-600">Norma internacional focada no compromisso da organização com a proteção do meio ambiente por meio da gestão dos riscos ambientais.</p>
                             </div>
                             <div className="bg-white p-6 rounded-3xl shadow-lg text-center">
+ codex/corrigir-botao-de-adicao-de-fotos-63ejav
                                 <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-45001-ES.png" alt="[Imagem do selo ISO 45001]" crossOrigin="anonymous" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
+
+ codex/corrigir-botao-de-adicao-de-fotos-gxmmam
+                                <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-45001-ES.png" alt="[Imagem do selo ISO 45001]" className="w-28 h-28 mx-auto mb-4 rounded-full object-cover"/>
+
+                                <img src="https://group-ism.com/br/wp-content/uploads/2023/07/ism-45001-ES.png" alt="[Imagem do selo ISO 45001]" className="h-28 mx-auto mb-4 rounded-full"/>
+ main
+ main
                                 <h3 className="font-bold text-lg text-gray-800">ISO 45001</h3>
                                 <p className="text-sm text-gray-600">Norma internacional que proporciona as condições de trabalho seguras e saudáveis para prevenir os danos e deterioração da saúde.</p>
                             </div>
