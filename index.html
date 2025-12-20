@@ -594,7 +594,7 @@
 
                     emoji.style.left = currentEmojiLeft + 'px';
 
-                    progressBar.style.width = (curveProgress * 100) + '%';
+                    progressBar.style.width = fillPx + 'px';
 
 
 
@@ -618,7 +618,7 @@
 
                         // FORÇA FINAL ABSOLUTO
 
-                        progressBar.style.width = '100%';
+                        progressBar.style.width = containerWidth + 'px';
 
                         emoji.style.left = finalPos + 'px';
 
